@@ -1,7 +1,8 @@
 # Convose activity guide
 
 Our mission is to add 1000s of multiplayer activities and games to Convose, searchable through a popup in the chat:
-![Onboarding 129 (8)](https://github.com/convose1/convose-activities/assets/20860711/a10944a8-6bd7-4585-b179-54bf0fb69d75)
+![Onboarding 129 (9)](https://github.com/convose1/convose-activities/assets/20860711/d4f06f3f-7043-4bd5-9169-8ec3d1daa699)
+
 
 Eventually every possible activity/game you can imagine will be there. 
 
