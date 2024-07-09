@@ -16,8 +16,10 @@ for both mobile & desktop. For mobile and desktop an activity would look like th
 ![user joined after](https://github.com/convose1/convose-activities/assets/20860711/36c4f99f-5479-41e2-accb-37db7dc3bd6b)
 
 
-Right now we're just beginning these activities, so there's no formal process yet, we're looking for developers who could talk/work closely with our team. Talk with us by joining our slack here: https://join.slack.com/t/convosecommunity/shared_invite/zt-2drs8s092-o5_JnX3tpjl8Q4zOw0cmSQ
+Right now we're just beginning these activities, so there's no formal process yet, we're looking for developers who could talk/work closely with our team. Talk with us by joining our slack here: https://join.slack.com/t/convosecommunity/shared_invite/zt-2drs8s092-o5_JnX3tpjl8Q4zOw0cmSQ or talk with Josh on Convose.
 
 Incase you can't host the website of your activity yourself we can also host it on our server.
+
+First step would be to create the game e.g., [codesandbox.io/](url) and test it with Josh. Then we'll work on integrating it with our sdk (so it shows the names and pfp of the participants). Then we can test it directly on production to see what the users think. Then we can work on adding the adsense videos so your game can make money.
 
 Hope to work with you!
