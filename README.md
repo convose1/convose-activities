@@ -17,6 +17,6 @@ Right now we're just beginning these activities, so there's no formal process ye
 
 Incase you can't host the website of your activity yourself we can also host it on our server.
 
-First step would be to create the game e.g., [codesandbox.io/](url) and test it with Josh. Then we'll work on integrating it with our sdk (so it shows the names and pfp of the participants). Then we can test it directly on production to see what the users think. Then we can work on adding the adsense videos so your game can make money.
+First step would be to create the game e.g., [codesandbox.io/](url) and test it with Josh. Then we'll work on integrating it with our platform (we will provide the user information like profile, name, etc ). Then we can test it directly on production to see what the users think. Then we can work on adding the adsense videos so your game can make money.
 
 Hope to work with you!
