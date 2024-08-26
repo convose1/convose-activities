@@ -1,12 +1,12 @@
 # Convose activity guide
 
- how we pass the user information to your activity, we pass it as param
+ How we pass the user information to your activity, we pass it as params
 
- ```
 const src="your_activity_url"
  const url= ${src}?channel_id=${chatId}&user_id=${uuid}&username=${username}&avatar=${avatar.url}
-```
-you can parse it like this 
+
+
+You can parse it like this 
 first import useSearchParams at the top of your component
 ```
 import { useSearchParams } from "react-router-dom";
