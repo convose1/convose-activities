@@ -20,7 +20,11 @@ here is an example how you can design your activity to work with convose.com
 - [flashCard activity front end](https://github.com/convose1/flashcard-activity-frontend).__
 - [flashCard activity back end](https://github.com/convose1/flashcard-activity-backend).
 
-
+### for testing your activity whether it is working or not you can try this technic
+replace the [your_activity_url.com] to your domain, run and use params
+```
+[your_activity_url.com]?channel_id=9233c643e0378877a3c2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
+```
 
 
 Our mission is to add many multiplayer activities and games to Convose, searchable through a popup in the chat:
