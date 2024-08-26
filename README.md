@@ -1,5 +1,19 @@
 # Convose activity guide
 
+ how we pass the user information to your activity, we pass it as param
+
+ ```
+const src="your_activity_url"
+ const url= ${src}?channel_id=${chatId}&user_id=${uuid}&username=${username}&avatar=${avatar.url}
+ //you can parse it like this
+// first import useSearchParams at the top of your component
+import { useSearchParams } from "react-router-dom";
+//inside your component you can access the passed params through the url like this
+const [searchParams, setSearchParams] = useSearchParams();
+ const params = extractParams(searchParams);
+ 
+
+```
 Our mission is to add many multiplayer activities and games to Convose, searchable through a popup in the chat:
 ![Onboarding 129](https://github.com/convose1/convose-activities/assets/20860711/2f393fee-d3db-4a24-ba33-b214fdc1f929)
 
