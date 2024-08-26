@@ -29,7 +29,7 @@ Here is an example how you can design your activity to work with convose.com
 Replace the [your_activity_url.com] to your domain, when you run your activity locally your domain is usually (http://localhost:3000), pass above params to your activity, and use the information inside the activity
 
 
-
+<br/><br/>
 
 
 Our mission is to add many multiplayer activities and games to Convose, searchable through a popup in the chat:
