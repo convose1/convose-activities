@@ -1,6 +1,6 @@
 # Convose activity guide
 
- How we pass the user information to your activity, we pass it as params
+ ### How we pass the user information to your activity, we pass it as URL Parameters
 
 const src="your_activity_url.com"
  const url= ${src}?channel_id=${chatId}&user_id=${uuid}&username=${username}&avatar=${avatar.url}
