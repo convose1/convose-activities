@@ -16,8 +16,11 @@ inside your component you can access the passed params through the url like this
 const [searchParams, setSearchParams] = useSearchParams();
  const params = extractParams(searchParams);
 ```
-here is an example how you can design your game to work with convose
-![flashCard activity](https://github.com/convose1/flashcard-activity-frontend)
+here is an example how you can design your activity to work with convose.com
+[flashCard activity](https://github.com/convose1/flashcard-activity-frontend).
+
+
+
 
 Our mission is to add many multiplayer activities and games to Convose, searchable through a popup in the chat:
 ![Onboarding 129](https://github.com/convose1/convose-activities/assets/20860711/2f393fee-d3db-4a24-ba33-b214fdc1f929)
