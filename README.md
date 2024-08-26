@@ -17,8 +17,8 @@ const [searchParams, setSearchParams] = useSearchParams();
  const params = extractParams(searchParams);
 ```
 here is an example how you can design your activity to work with convose.com
-[flashCard activity front end](https://github.com/convose1/flashcard-activity-frontend).__
-[flashCard activity back end](https://github.com/convose1/flashcard-activity-backend).
+- [flashCard activity front end](https://github.com/convose1/flashcard-activity-frontend).__
+- [flashCard activity back end](https://github.com/convose1/flashcard-activity-backend).
 
 
 
