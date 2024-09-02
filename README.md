@@ -6,6 +6,12 @@ Example:
 ```
 [your_activity_url.com]?channel_id=9233c643e0378877a3c2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
 ```
+### here is convose flashcard activity
+```
+ https://convose-flashcard-activity.netlify.app?channel_id=4b218440eb334dbbcac2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
+```
+
+
 
 ##
 You can parse it like this 
