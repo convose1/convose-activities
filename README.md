@@ -1,44 +1,103 @@
-# Convose activity guide
+# Convose Activity Guide
 
- ### How we pass the user information to your activity, we pass it as URL Parameters
+Convose allows you to embed activities inside our platform.  
+We pass user information from the parent app (**Convose**) to your activity via `postMessage`.
 
-Example:
-```
-[your_activity_url.com]?channel_id=9233c643e0378877a3c2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
-```
-### here is convose flashcard activity example
-```
- https://convose-flashcard-activity.netlify.app?channel_id=4b218440eb334dbbcac2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
+---
+
+## Passing User Information with `postMessage`
+
+### Example – Parent App (Convose)
+
+```jsx
+const iframeRef = useRef(null);
+
+useEffect(() => {
+  const iframe = iframeRef.current;
+
+  if (iframe) {
+    iframe.onload = () => {
+      // Send message to the iframe once it's loaded
+      iframe.contentWindow.postMessage(
+        {
+          type: "profile",
+          payload: {
+            channel_id: "9233c643e0378877a3c2",
+            user_id: "OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw",
+            username: "Ahmad",
+            avatar:
+              "https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef",
+          },
+        },
+        "*"
+      );
+    };
+  }
+}, []);
 ```
 
+### Example Payload (Convose → Activity App)
 
+```
+{
+  "channel_id": "9233c643e0378877a3c2",
+  "user_id": "OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw",
+  "username": "Ahmad",
+  "avatar": "https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef"
+}
 
-##
-You can parse it like this 
-First import useSearchParams at the top of your component
 ```
- import { useSearchParams } from "react-router-dom";
+
+### Example – Activity App (Iframe)
+
+```jsx
+const [profile, setProfile] = useState(null);
+
+useEffect(() => {
+  const handleMessage = (event) => {
+    // ⚠️ SECURITY: Always verify the origin before accepting data
+    if (
+      !["http://localhost:3000", "https://convose.com"].includes(event.origin)
+    ) {
+      return;
+    }
+
+    if (event.data.type === "profile") {
+      setProfile(event.data.payload);
+      console.log("Received profile:", event.data.payload);
+    }
+  };
+
+  window.addEventListener("message", handleMessage);
+  return () => window.removeEventListener("message", handleMessage);
+}, []);
 ```
-##
-Inside your component you can access the passed URL Parameters like this
-```
- const [searchParams, setSearchParams] = useSearchParams();
- const params = extractParams(searchParams);
-```
-##
+
 Here is an example how you can design your activity to work with convose.com
+
 - [flashCard activity front end](https://github.com/convose1/flashcard-activity-frontend).
 - [flashCard activity back end](https://github.com/convose1/flashcard-activity-backend).
-##
-### For testing your activity if it is working or not you can try this technic
-```
-[your_activity_url.com]?channel_id=9233c643e0378877a3c2&user_id=OWE0Yjg2NDU2MDQ1ZjBlYQ-OWQzYTA5MTUzMTNlNTA3Nw&username=Ibrahim&avatar=https://cdn.convose.com/images/variants/sgotn1609nou64rj9ocsed5g1m7e/952cd6b530142f7c7b959d72af7d5416b8145af5c5a3a1c418143950dc7f9eef
-```
-Replace the [your_activity_url.com] to your domain, when you run your activity locally your domain is usually (http://localhost:3000), pass above params to your activity, and use the information inside the activity
 
+### For testing your activity
+
+Instead of getting user profile from parent convose you can use this end point to get user profile
+
+```
+fetch('https://be-v2.convose.com/activity/user')
+  .then(res => res.json())
+  .then(profile => {
+    setProfile(profile);
+  });
+
+```
+
+### Note
+
+Since we play your activity on diffrent sizes of screen make sure it is responsive and mobile freindly
 
 <br/><br/>
 
+## These are some screenshot what an activity look like inside the convose
 
 Our mission is to add many multiplayer activities and games to Convose, searchable through a popup in the chat:
 ![Onboarding 129](https://github.com/convose1/convose-activities/assets/20860711/2f393fee-d3db-4a24-ba33-b214fdc1f929)
@@ -47,11 +106,10 @@ Eventually, every possible activity/game you can imagine will be there. Our goal
 ![Onboarding 124 (8)](https://github.com/convose1/convose-activities/assets/20860711/5c056e32-2ca9-4d2f-a6f6-190d078ae17c)
 Or have in-activity purchases or paid activities.
 
-To build an activity for Convose just make a website of that activity, send us the URL and we will show the activity in Convose using Iframe. Ideally it should be responsive 
+To build an activity for Convose just make a website of that activity, send us the URL and we will show the activity in Convose using Iframe. Ideally it should be responsive
 for both mobile & desktop. For mobile and desktop an activity would look like this:
- ![starting screen](https://github.com/convose1/convose-activities/assets/20860711/5356eb4d-4ad3-4e68-9e58-a7646e6054c8)
+![starting screen](https://github.com/convose1/convose-activities/assets/20860711/5356eb4d-4ad3-4e68-9e58-a7646e6054c8)
 ![user joined after](https://github.com/convose1/convose-activities/assets/20860711/36c4f99f-5479-41e2-accb-37db7dc3bd6b)
-
 
 Right now we're just beginning these activities, so there's no formal process yet, we're looking for developers who could talk/work closely with our team. Talk with us by joining our slack here: https://join.slack.com/t/convosecommunity/shared_invite/zt-2drs8s092-o5_JnX3tpjl8Q4zOw0cmSQ or talk with Josh on Convose.
 
